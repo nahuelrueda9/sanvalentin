@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Feliz 14 de Febrero</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: linear-gradient(to bottom, #ffdde1, #ee9ca7);
+      font-family: 'Arial', sans-serif;
+    }
+
+    .mensaje {
+      position: fixed;
+      top: 40%;
+      width: 100%;
+      text-align: center;
+      font-size: 2.5rem;
+      color: #b30059;
+      z-index: 10;
+      animation: aparecer 2s ease-in-out;
+    }
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .flor {
+      position: absolute;
+      font-size: 2rem;
+      animation: caer 6s linear infinite;
+      opacity: 0.9;
+    }
+
+    @keyframes caer {
+      0% {
+        transform: translateY(-50px) rotate(0deg);
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mensaje">
+    🌸 Feliz 14 de febrero, Andrea! ❤️<br>
+    Te amo 💕
+  </div>
+
+  <script>
+    const flores = ["🌸", "🌹", "🌷", "💐"];
+
+    function crearFlor() {
+      const flor = document.createElement("div");
+      flor.classList.add("flor");
+      flor.innerText = flores[Math.floor(Math.random() * flores.length)];
+
+      flor.style.left = Math.random() * window.innerWidth + "px";
+      flor.style.animationDuration = (Math.random() * 3 + 4) + "s";
+      flor.style.fontSize = (Math.random() * 20 + 20) + "px";
+
+      document.body.appendChild(flor);
+
+      setTimeout(() => {
+        flor.remove();
+      }, 7000);
+    }
+
+    setInterval(crearFlor, 300);
+  </script>
+
+</body>
+</html>
